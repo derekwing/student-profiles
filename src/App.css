@@ -3,6 +3,7 @@ body {
   background-color: rgb(182, 182, 182);
   padding: 0;
   margin: 0;
+  font-family: "Raleway", sans-serif;
 }
 
 .container {
@@ -23,4 +24,12 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   box-shadow: 1px 1px 3px gray;
+}
+
+hr {
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background: #000;
+  opacity: 0.2;
 }

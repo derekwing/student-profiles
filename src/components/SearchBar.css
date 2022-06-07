@@ -1,0 +1,18 @@
+.search-bar {
+  width: 97%;
+  height: 2rem;
+  margin: 1rem 0 0 1rem;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-color: lightgray;
+  border-width: 2px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  outline: none;
+  padding-bottom: 1rem;
+}
+
+.search-bar:focus {
+  border-color: black;
+}
