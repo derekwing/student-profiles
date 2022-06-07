@@ -17,19 +17,16 @@ const App = () => {
 
   const fetchStudentProfiles = () => {
     axios.get(apiURL).then((response) => {
-      console.log("studentProfiles:", response.data.students);
       setStudentProfiles(response.data.students);
     });
   };
 
   const handleNameSearchOnChange = (event) => {
     setNameSearchTerm(event.target.value.toLowerCase());
-    console.log("nameSearchTerm:", event.target.value.toLowerCase());
   };
 
   const handleTagSearchOnChange = (event) => {
     setTagSearchTerm(event.target.value.toLowerCase());
-    console.log("tagSearchTerm:", event.target.value.toLowerCase());
   };
 
   return (

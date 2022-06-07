@@ -33,8 +33,6 @@ const StudentProfiles = ({
 
   // Filter by tag when only there is some value in the tag search bar
   if (tagSearchTerm && !nameSearchTerm) {
-    console.log("Only tag term is defined");
-    // Return array of students where there tag has indexOf(tagSearchTerm) > 1
     let filteredStudents = [];
     if (studentProfiles) {
       studentProfiles.forEach((studentProfile) => {
@@ -74,7 +72,48 @@ const StudentProfiles = ({
 
   // Filter by name and tag when there is some value in BOTH name and tag search bars
   if (tagSearchTerm && nameSearchTerm) {
-    console.log("BOTH terms are defined");
+    let filteredStudents = [];
+    if (studentProfiles) {
+      studentProfiles.forEach((studentProfile) => {
+        if (studentTags[studentProfile.id]) {
+          studentTags[studentProfile.id].forEach((tag) => {
+            if (tag.indexOf(tagSearchTerm) >= 0) {
+              if (filteredStudents.length === 0) {
+                filteredStudents.push(studentProfile);
+              }
+              let isDuplicate = false;
+              filteredStudents.forEach((student) => {
+                if (student.id === studentProfile.id) {
+                  isDuplicate = true;
+                }
+              });
+              if (isDuplicate === false) {
+                filteredStudents.push(studentProfile);
+              }
+            }
+          });
+        }
+      });
+    }
+    return filteredStudents
+      ? filteredStudents
+          .filter(
+            (studentProfile) =>
+              studentProfile.firstName.toLowerCase().indexOf(nameSearchTerm) >=
+                0 ||
+              studentProfile.lastName.toLowerCase().indexOf(nameSearchTerm) >= 0
+          )
+          .map((studentProfile) => {
+            return (
+              <StudentProfile
+                key={studentProfile.id}
+                studentProfile={studentProfile}
+                studentTags={studentTags}
+                setStudentTags={setStudentTags}
+              />
+            );
+          })
+      : null;
   }
 
   return studentProfiles

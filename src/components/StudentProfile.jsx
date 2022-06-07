@@ -8,10 +8,9 @@ import "./StudentProfile.css";
 
 const StudentProfile = ({ studentProfile, studentTags, setStudentTags }) => {
   const [listOpen, setListOpen] = useState(false);
-  const [tagValue, setTagValue] = useState(null);
+  const [tagValue, setTagValue] = useState("");
 
   const handleTagOnChange = (event) => {
-    console.log("event.target.value:", event.target.value);
     setTagValue(event.target.value);
   };
 
@@ -20,25 +19,14 @@ const StudentProfile = ({ studentProfile, studentTags, setStudentTags }) => {
     const tag = tagValue;
 
     if (tag.length >= 0) {
-      // const tagElem = document.createElement("div");
-      // tagElem.className = "tag";
-      // tagElem.innerHTML = tag;
-      // tagsElem.append(tagElem);
       if (studentTags[studentProfile.id] === undefined) {
-        console.log("Undefined student profile id");
-        console.log("Before adding new student tag:", studentTags);
         setStudentTags({ ...studentTags, [studentProfile.id]: [tag] });
-        console.log("After adding onto object state:", studentTags);
       } else {
         studentTags[studentProfile.id].push(tag);
-        // setStudentTags({ ...studentTags, [studentProfile.id]: [...tags, tag] });
-        console.log("After adding onto object state:", studentTags);
-        console.log("Student Id is defined");
       }
     }
 
-    setTagValue(null);
-    document.getElementById("add-tag-field").value = "";
+    setTagValue("");
   };
 
   return (
@@ -82,6 +70,7 @@ const StudentProfile = ({ studentProfile, studentTags, setStudentTags }) => {
             <AddTagField
               handleTagOnChange={handleTagOnChange}
               handleTagSubmit={handleTagSubmit}
+              tagValue={tagValue}
             />
           </div>
         </div>
