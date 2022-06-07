@@ -6,7 +6,8 @@ import SearchBar from "./components/SearchBar.jsx";
 
 const App = () => {
   const [studentProfiles, setStudentProfiles] = useState(null);
-  const [searchTerm, setSearchTerm] = useState(null);
+  const [nameSearchTerm, setNameSearchTerm] = useState(null);
+  const [tagSearchTerm, setTagSearchTerm] = useState(null);
 
   useEffect(() => {
     fetchStudentProfiles();
@@ -21,18 +22,35 @@ const App = () => {
     });
   };
 
-  const handleSearchOnChange = (event) => {
-    setSearchTerm(event.target.value.toLowerCase());
+  const handleNameSearchOnChange = (event) => {
+    setNameSearchTerm(event.target.value.toLowerCase());
+    console.log("nameSearchTerm:", event.target.value.toLowerCase());
+  };
+
+  const handleTagSearchOnChange = (event) => {
+    setTagSearchTerm(event.target.value.toLowerCase());
+    console.log("tagSearchTerm:", event.target.value.toLowerCase());
   };
 
   return (
     <div className="round-container">
       <div className="container">
-        <SearchBar handleSearchOnChange={handleSearchOnChange} />
-        <StudentProfiles
-          studentProfiles={studentProfiles}
-          searchTerm={searchTerm}
-        />
+        <div className="search-bars-container">
+          <SearchBar
+            handleSearchOnChange={handleNameSearchOnChange}
+            searchType="name"
+          />
+          <SearchBar
+            handleSearchOnChange={handleTagSearchOnChange}
+            searchType="tag"
+          />
+        </div>
+        <div className="student-profiles-container">
+          <StudentProfiles
+            studentProfiles={studentProfiles}
+            nameSearchTerm={nameSearchTerm}
+          />
+        </div>
       </div>
     </div>
   );

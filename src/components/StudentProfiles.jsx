@@ -1,14 +1,14 @@
 import React from "react";
 import StudentProfile from "./StudentProfile.jsx";
 
-const StudentProfiles = ({ studentProfiles, searchTerm }) => {
-  if (searchTerm) {
+const StudentProfiles = ({ studentProfiles, nameSearchTerm }) => {
+  if (nameSearchTerm) {
     return studentProfiles
       ? studentProfiles
           .filter(
             (student) =>
-              student.firstName.toLowerCase().indexOf(searchTerm) >= 0 ||
-              student.lastName.toLowerCase().indexOf(searchTerm) >= 0
+              student.firstName.toLowerCase().indexOf(nameSearchTerm) >= 0 ||
+              student.lastName.toLowerCase().indexOf(nameSearchTerm) >= 0
           )
           .map((studentProfile) => {
             return (

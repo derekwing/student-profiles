@@ -39,3 +39,16 @@
   padding: 0;
   color: gray;
 }
+
+#tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: rgb(201, 201, 201);
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 10%;
+}

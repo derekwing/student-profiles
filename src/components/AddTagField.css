@@ -1,0 +1,16 @@
+#add-tag-field {
+  font-family: "Raleway", sans-serif;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-color: lightgray;
+  border-width: 2px;
+  font-size: 1rem;
+  outline: none;
+  padding: 0.5rem;
+  margin-left: 2rem;
+}
+
+.add-tag-field:focus {
+  border-color: black;
+}

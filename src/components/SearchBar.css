@@ -1,10 +1,9 @@
 .search-bar {
   position: sticky;
   z-index: 10;
-  top: 0px;
+  top: 0;
   width: 97%;
   height: 2rem;
-  margin: 0.5rem 0 0 0.5rem;
   border-top: none;
   border-right: none;
   border-left: none;
@@ -13,9 +12,10 @@
   font-family: "Raleway", sans-serif;
   font-size: 1.5rem;
   outline: none;
-  padding: 0.5rem;
+  padding: 1rem;
+  margin: 0;
 }
 
-.search-bar:focus {
+.name-search-bar:focus {
   border-color: black;
 }
