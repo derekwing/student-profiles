@@ -33,38 +33,42 @@ const StudentProfiles = ({
 
   // Filter by tag when only there is some value in the tag search bar
   if (tagSearchTerm && !nameSearchTerm) {
-    console.log("Only term is defined");
+    console.log("Only tag term is defined");
     // Return array of students where there tag has indexOf(tagSearchTerm) > 1
-    return studentProfiles
-      ? studentProfiles
-          .filter((studentProfile) => {
-            // If the tagSearchTerm exists in any elem in studentTags[studentProfile.id]
-            // Then return true;
-            debugger;
-            console.log(
-              "studentTags[studentProfile.id]:",
-              studentTags[studentProfile.id]
-            );
-            // if (studentTags[studentProfile.id].length > 0) {
-            //   for (let i = 0; i < studentTags[studentProfile.id]; i++) {
-            //     const studentTag = studentTags[studentProfile.id][i];
-            //     if (studentTag.indexOf(tagSearchTerm) >= 0) {
-            //       return true;
-            //     }
-            //   }
-            // }
-            return false;
-          })
-          .map((studentProfile) => {
-            return (
-              <StudentProfile
-                key={studentProfile.id}
-                studentProfile={studentProfile}
-                studentTags={studentTags}
-                setStudentTags={setStudentTags}
-              />
-            );
-          })
+    let filteredStudents = [];
+    if (studentProfiles) {
+      studentProfiles.forEach((studentProfile) => {
+        if (studentTags[studentProfile.id]) {
+          studentTags[studentProfile.id].forEach((tag) => {
+            if (tag.indexOf(tagSearchTerm) >= 0) {
+              if (filteredStudents.length === 0) {
+                filteredStudents.push(studentProfile);
+              }
+              let isDuplicate = false;
+              filteredStudents.forEach((student) => {
+                if (student.id === studentProfile.id) {
+                  isDuplicate = true;
+                }
+              });
+              if (isDuplicate === false) {
+                filteredStudents.push(studentProfile);
+              }
+            }
+          });
+        }
+      });
+    }
+    return filteredStudents
+      ? filteredStudents.map((studentProfile) => {
+          return (
+            <StudentProfile
+              key={studentProfile.id}
+              studentProfile={studentProfile}
+              studentTags={studentTags}
+              setStudentTags={setStudentTags}
+            />
+          );
+        })
       : null;
   }
 
