@@ -1,12 +1,7 @@
 import React from "react";
 import "./AddTagField.css";
 
-const AddTagField = ({
-  setTagValue,
-  tagValue,
-  handleTagOnChange,
-  handleTagSubmit,
-}) => {
+const AddTagField = ({ handleTagOnChange, handleTagSubmit }) => {
   return (
     <form onSubmit={handleTagSubmit}>
       <input

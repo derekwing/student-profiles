@@ -33,8 +33,8 @@ const App = () => {
   };
 
   return (
-    <div className="round-container">
-      <div className="container">
+    <div className="align">
+      <div className="main-container">
         <div className="search-bars-container">
           <SearchBar
             handleSearchOnChange={handleNameSearchOnChange}
@@ -45,10 +45,11 @@ const App = () => {
             searchType="tag"
           />
         </div>
-        <div className="student-profiles-container">
+        <div className="profile-container">
           <StudentProfiles
             studentProfiles={studentProfiles}
             nameSearchTerm={nameSearchTerm}
+            tagSearchTerm={tagSearchTerm}
           />
         </div>
       </div>

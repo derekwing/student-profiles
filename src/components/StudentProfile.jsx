@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import "./StudentProfile.css";
 import ToggleListViewButton from "./ToggleListViewButton.jsx";
 import ToggleCollapseListButton from "./ToggleCollapseListButton.jsx";
 import AddTagField from "./AddTagField.jsx";
 import TestScores from "./TestScores.jsx";
 import StudentTags from "./StudentTags.jsx";
-import "./StudentTags.css";
+import "./StudentProfile.css";
 
 const StudentProfile = ({ studentProfile, studentTags, setStudentTags }) => {
   const [listOpen, setListOpen] = useState(false);
-  const [tags, setTags] = useState([]);
   const [tagValue, setTagValue] = useState(null);
 
   const handleTagOnChange = (event) => {
@@ -82,8 +80,6 @@ const StudentProfile = ({ studentProfile, studentTags, setStudentTags }) => {
           </div>
           <div>
             <AddTagField
-              setTagValue={setTagValue}
-              tagValue={tagValue}
               handleTagOnChange={handleTagOnChange}
               handleTagSubmit={handleTagSubmit}
             />

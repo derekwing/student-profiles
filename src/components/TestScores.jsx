@@ -7,7 +7,7 @@ const TestScores = ({ studentProfileGrades, listOpen }) => {
       <div className="student-grades">
         {studentProfileGrades.map((grade, index) => {
           return (
-            <div className="grades-container">
+            <div key={index} className="grades-container">
               <div>Test {index + 1}:</div>
               <div>{grade}%</div>
             </div>

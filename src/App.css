@@ -14,31 +14,36 @@ hr {
   opacity: 0.2;
 }
 
-.container {
-  width: 60vw;
-  height: 70vh;
-  overflow: auto;
-}
-
-.round-container {
+.profile-container {
+  box-sizing: border-box;
   background-color: white;
-  border-radius: 7px;
-  width: 60vw;
-  height: 70vh;
-  margin: auto;
+  border-radius: 0 0 10px 10px;
+  width: 65vw;
+  height: 60vh;
   position: relative;
-  top: 50vh;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
   box-shadow: 1px 1px 3px gray;
+  overflow: auto;
+  margin-top: 3rem;
 }
 
 .search-bars-container {
-  position: fixed;
-  width: 97%;
-  z-index: 10;
+  position: relative;
+  right: 0;
+  left: 0;
+  top: 15%;
+  width: 65vw;
+  height: 3rem;
+  margin: auto;
+  z-index: 100;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 1px 1px 3px gray;
 }
 
-.student-profiles-container {
-  margin-top: 10rem;
+.align {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 65vw;
+  margin: 7% auto 0 auto;
 }
