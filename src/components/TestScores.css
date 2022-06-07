@@ -1,0 +1,8 @@
+.student-grades {
+  margin-top: 0.5rem;
+}
+
+.grades-container {
+  display: flex;
+  gap: 2rem;
+}
