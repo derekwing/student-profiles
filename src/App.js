@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./App.css";
 import StudentProfiles from "./components/StudentProfiles.jsx";
 
 const App = () => {
@@ -17,8 +18,10 @@ const App = () => {
     });
   };
   return (
-    <div>
-      <StudentProfiles studentProfiles={studentProfiles} />
+    <div className="round-container">
+      <div className="container">
+        <StudentProfiles studentProfiles={studentProfiles} />
+      </div>
     </div>
   );
 };

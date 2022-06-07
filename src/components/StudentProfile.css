@@ -1,3 +1,35 @@
+.student-profile {
+  display: flex;
+  margin: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+}
+
+.profile-pic {
+  border-style: solid;
+  border-radius: 50%;
+  border-width: 1px;
+  border-color: rgb(168, 168, 168);
+  height: 15vh;
+  margin: 1rem;
+}
+
+.student-details {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.25rem;
+  margin: 0.5rem 0 0.5rem 2.5rem;
+}
+
 .student-name {
   font-weight: bold;
+  font-size: 3rem;
+  margin-left: 1rem;
+}
+
+hr {
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background: #000;
+  opacity: 0.2;
 }

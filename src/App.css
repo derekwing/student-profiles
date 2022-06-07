@@ -1,0 +1,26 @@
+html,
+body {
+  background-color: rgb(182, 182, 182);
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 60vw;
+  height: 70vh;
+  overflow: auto;
+}
+
+.round-container {
+  background-color: white;
+  border-radius: 7px;
+  width: 60vw;
+  height: 70vh;
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+  top: 50vh;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-shadow: 1px 1px 3px gray;
+}

@@ -4,7 +4,12 @@ import StudentProfile from "./StudentProfile.jsx";
 const StudentProfiles = ({ studentProfiles }) => {
   return studentProfiles
     ? studentProfiles.map((studentProfile) => {
-        return <StudentProfile studentProfile={studentProfile} />;
+        return (
+          <StudentProfile
+            key={studentProfile.id}
+            studentProfile={studentProfile}
+          />
+        );
       })
     : null;
 };
