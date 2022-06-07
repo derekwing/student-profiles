@@ -4,8 +4,10 @@ import ToggleListViewButton from "./ToggleListViewButton.jsx";
 import ToggleCollapseListButton from "./ToggleCollapseListButton.jsx";
 import AddTagField from "./AddTagField.jsx";
 import TestScores from "./TestScores.jsx";
+import StudentTags from "./StudentTags.jsx";
+import "./StudentTags.css";
 
-const StudentProfile = ({ studentProfile }) => {
+const StudentProfile = ({ studentProfile, studentTags, setStudentTags }) => {
   const [listOpen, setListOpen] = useState(false);
   const [tags, setTags] = useState([]);
   const [tagValue, setTagValue] = useState(null);
@@ -18,14 +20,23 @@ const StudentProfile = ({ studentProfile }) => {
   const handleTagSubmit = (e) => {
     e.preventDefault();
     const tag = tagValue;
-    const tagsElem = document.getElementById("tags");
 
     if (tag.length >= 0) {
-      const tagElem = document.createElement("div");
-      tagElem.className = "tag";
-      tagElem.innerHTML = tag;
-      tagsElem.append(tagElem);
-      setTags([...tags, tag]);
+      // const tagElem = document.createElement("div");
+      // tagElem.className = "tag";
+      // tagElem.innerHTML = tag;
+      // tagsElem.append(tagElem);
+      if (studentTags[studentProfile.id] === undefined) {
+        console.log("Undefined student profile id");
+        console.log("Before adding new student tag:", studentTags);
+        setStudentTags({ ...studentTags, [studentProfile.id]: [tag] });
+        console.log("After adding onto object state:", studentTags);
+      } else {
+        studentTags[studentProfile.id].push(tag);
+        // setStudentTags({ ...studentTags, [studentProfile.id]: [...tags, tag] });
+        console.log("After adding onto object state:", studentTags);
+        console.log("Student Id is defined");
+      }
     }
 
     setTagValue(null);
@@ -62,7 +73,12 @@ const StudentProfile = ({ studentProfile }) => {
               studentProfileGrades={studentProfile.grades}
               listOpen={listOpen}
             />
-            <div id="tags"></div>
+            <div className="tags">
+              <StudentTags
+                studentTags={studentTags}
+                studentProfileId={studentProfile.id}
+              />
+            </div>
           </div>
           <div>
             <AddTagField

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import StudentProfile from "./StudentProfile.jsx";
 
 const StudentProfiles = ({ studentProfiles, nameSearchTerm }) => {
+  const [studentTags, setStudentTags] = useState({});
+
   if (nameSearchTerm) {
     return studentProfiles
       ? studentProfiles
@@ -15,6 +17,8 @@ const StudentProfiles = ({ studentProfiles, nameSearchTerm }) => {
               <StudentProfile
                 key={studentProfile.id}
                 studentProfile={studentProfile}
+                studentTags={studentTags}
+                setStudentTags={setStudentTags}
               />
             );
           })
@@ -27,6 +31,8 @@ const StudentProfiles = ({ studentProfiles, nameSearchTerm }) => {
           <StudentProfile
             key={studentProfile.id}
             studentProfile={studentProfile}
+            studentTags={studentTags}
+            setStudentTags={setStudentTags}
           />
         );
       })
