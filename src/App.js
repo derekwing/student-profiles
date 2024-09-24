@@ -1,25 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./App.css";
 import StudentProfiles from "./components/StudentProfiles.jsx";
 import SearchBar from "./components/SearchBar.jsx";
+import data from "./lib/data.js";
 
 const App = () => {
-  const [studentProfiles, setStudentProfiles] = useState(null);
   const [nameSearchTerm, setNameSearchTerm] = useState(null);
   const [tagSearchTerm, setTagSearchTerm] = useState(null);
-
-  useEffect(() => {
-    fetchStudentProfiles();
-  }, []);
-
-  const apiURL = "https://api.hatchways.io/assessment/students";
-
-  const fetchStudentProfiles = () => {
-    axios.get(apiURL).then((response) => {
-      setStudentProfiles(response.data.students);
-    });
-  };
 
   const handleNameSearchOnChange = (event) => {
     setNameSearchTerm(event.target.value.toLowerCase());
@@ -44,7 +31,7 @@ const App = () => {
         </div>
         <div className="profile-container">
           <StudentProfiles
-            studentProfiles={studentProfiles}
+            studentProfiles={data.students}
             nameSearchTerm={nameSearchTerm}
             tagSearchTerm={tagSearchTerm}
           />
