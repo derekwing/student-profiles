@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import StudentProfiles from "./components/StudentProfiles.jsx";
 import SearchBar from "./components/SearchBar.jsx";
-import data from "./lib/data.js";
 
 const App = () => {
   const [nameSearchTerm, setNameSearchTerm] = useState(null);
@@ -31,7 +30,6 @@ const App = () => {
         </div>
         <div className="profile-container">
           <StudentProfiles
-            studentProfiles={data.students}
             nameSearchTerm={nameSearchTerm}
             tagSearchTerm={tagSearchTerm}
           />

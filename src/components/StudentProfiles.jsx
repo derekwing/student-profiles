@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import StudentProfile from "./StudentProfile.jsx";
+import data from "../lib/data";
 
-const StudentProfiles = ({
-  studentProfiles,
-  nameSearchTerm,
-  tagSearchTerm,
-}) => {
+const StudentProfiles = ({ nameSearchTerm, tagSearchTerm }) => {
   const [studentTags, setStudentTags] = useState({});
 
   // Filter by name when only there is some value in the name search bar
   if (nameSearchTerm && !tagSearchTerm) {
-    return studentProfiles
-      ? studentProfiles
+    return data.students
+      ? data.students
           .filter(
             (studentProfile) =>
               studentProfile.firstName.toLowerCase().indexOf(nameSearchTerm) >=
@@ -34,8 +31,8 @@ const StudentProfiles = ({
   // Filter by tag when only there is some value in the tag search bar
   if (tagSearchTerm && !nameSearchTerm) {
     let filteredStudents = [];
-    if (studentProfiles) {
-      studentProfiles.forEach((studentProfile) => {
+    if (data.students) {
+      data.students.forEach((studentProfile) => {
         if (studentTags[studentProfile.id]) {
           studentTags[studentProfile.id].forEach((tag) => {
             if (tag.indexOf(tagSearchTerm) >= 0) {
@@ -73,8 +70,8 @@ const StudentProfiles = ({
   // Filter by name and tag when there is some value in BOTH name and tag search bars
   if (tagSearchTerm && nameSearchTerm) {
     let filteredStudents = [];
-    if (studentProfiles) {
-      studentProfiles.forEach((studentProfile) => {
+    if (data.students) {
+      data.students.forEach((studentProfile) => {
         if (studentTags[studentProfile.id]) {
           studentTags[studentProfile.id].forEach((tag) => {
             if (tag.indexOf(tagSearchTerm) >= 0) {
@@ -116,8 +113,8 @@ const StudentProfiles = ({
       : null;
   }
 
-  return studentProfiles
-    ? studentProfiles.map((studentProfile) => {
+  return data.students
+    ? data.students.map((studentProfile) => {
         return (
           <StudentProfile
             key={studentProfile.id}
